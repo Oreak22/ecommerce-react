@@ -21,7 +21,7 @@ const GoodsCarth = ({datas}) => {
   return (
     <>
     <div className=" p-0" onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
-        <div className="d-flex product-card justify-content-center py-5 align-items-center b-blue">
+        <div className="d-flex product-card justify-content-center py-0 align-items-center b-blue">
             <div className={discount > 0 ?'costumer_action d-flex bg-transparent px-2 pt-2 justify-content-between ': 'costumer_action d-flex bg-transparent px-2 pt-2 justify-content-end align-items-'}> 
                 {discount > 0 && <small className="b-red px-2 rounded-1 text-light" style={{height:'fit-content'}}>-{discount}%</small>}
                <div>
