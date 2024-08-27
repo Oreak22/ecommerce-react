@@ -1,0 +1,170 @@
+
+.b-dark{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.bt-red{
+    background-color: #EA4335;
+    color: white;
+}
+.tx-red{
+    color: #EA4335;
+}
+.b-red{
+    background-color: #EA4335;
+}
+.b-blue{
+    background-color: #a0bce038;
+}
+.hover-blue:hover{
+    color: #a0bce094;
+}
+.hover-red:hover{
+    color: #E07575;
+}
+.hover-blue:hover{
+    color: #A0BCE0;
+}
+.hover-blue:hover{
+    color: #A0BCE0 !important;
+}
+.bk-secondary{
+    background-color: #F5F5F5;
+}
+.tx-secondary{
+    color: #F5F5F5;
+}
+.nav-item{
+    list-style: none;
+}
+.bg-black{
+    background-color: black;
+}
+.active{
+    border-bottom: solid thin black;
+}
+nav{
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+nav input{
+    height: 100%;
+    border: none;
+    outline: none;
+}
+.sign-input{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: solid thin black !important;
+    border-radius: 0 !important;
+    overflow-x: hidden;
+}
+.footer-email{
+    border: solid thin white;
+}
+.footer-email input{
+    outline: none;
+    border: none;
+    width: 80%;
+    font-size: smaller;
+    background-color: black;
+}
+.footer-link{
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    align-self: self-start;
+    align-content: flex-start;
+}
+
+.userbtn{
+    position: relative;
+}
+.userbtn span{
+    position: absolute;
+    top: -25%;
+    right: -25%;
+    padding: 0.1rem 0.3rem;
+    line-height: 1rem;
+    height: fit-content;
+    background-color: #EA4335;
+}
+
+.cartCounter{
+    width: fit-content !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.cartCounter input{
+    width: 2rem;
+    border: none;
+    outline: none;
+}
+.naira_icon{
+    width: 1rem;
+}
+.cart-bill{
+    border: solid 0.14rem black;
+}
+.canclecarttoggle{
+    position: absolute;
+    top: -30%;
+    left: 2%;
+}
+
+.product-card{
+    position: relative;
+    border-radius: 0 0 0.5rem 0.5rem;
+    height: 16rem;
+}
+.costumer_action{
+    width: 100%;
+    position: absolute;
+    background: transparent;
+    top: 3%;
+    left: 0;
+}
+.p-absolute{
+    position: absolute;
+    bottom: 0;
+}
+.p-absolute button{
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.scroll-x{
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.scroll-x::-webkit-scrollbar{
+    display: none;
+    
+}
+.solid{
+    width: 1.2rem;
+    height: 2.5rem;
+}
+.fs-7{
+    font-size: 0.7rem !important;
+}
+.categoty-card{
+    width: 10rem !important;
+    box-sizing: border-box !important;
+}
+.fit-content{
+    width: fit-content;
+    overflow-x: scroll;
+}
+.fit-content::-webkit-scrollbar{
+    display: none;
+    
+}
+.page-carosel{
+    height: 100%;
+    /* background: #000; */
+}
+.carosel-hoder{
+    height: 15rem;
+}
