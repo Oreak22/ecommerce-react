@@ -18,7 +18,7 @@ const Account = () => {
     const navigate =useNavigate()
    
     const editDetails= ()=>{
-        const url = 'http://ecommerceserver24.vercel.app/auth/editdetail'
+        const url = 'https://ecommerceserver24.vercel.app//auth/editdetail'
         const newdetail = {
             updateDetails:{
                 uname,
@@ -39,7 +39,7 @@ const Account = () => {
 
     useEffect(()=> {
         setIsLoading(true)
-        const url = 'http://ecommerceserver24.vercel.app/user/userInfo'
+        const url = 'https://ecommerceserver24.vercel.app//user/userInfo'
         const _id= {user_id:JSON.parse(localStorage.getItem('exclusive')).account_id}
         axios.get(url,{headers:_id}).then((res)=>{
             setuser_data(res.data.user_data)

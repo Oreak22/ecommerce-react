@@ -15,8 +15,8 @@ const Recovermail = () => {
     const [seenCode, setSeenCode] = useState(false)
     const [tryagain, setTryagain] = useState(false)
     const [code, setCode] = useState()
-    const url ='http://ecommerceserver24.vercel.app/auth/lostaccount'
-    const url2 ='http://ecommerceserver24.vercel.app/auth/resetcode'
+    const url ='https://ecommerceserver24.vercel.app//auth/lostaccount'
+    const url2 ='https://ecommerceserver24.vercel.app//auth/resetcode'
     
     const sendRecover = ()=>{
         setIsLoading(true)

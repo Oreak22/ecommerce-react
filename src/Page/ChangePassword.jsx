@@ -8,7 +8,7 @@ const ChangePassword = () => {
     const [trg, setTrg] = useState(false)
     const {setIsLoading} = useContext(LoadingContent)
     const [newpassword, setNewpassword] = useState()
-    const url ='http://ecommerceserver24.vercel.app/auth/resetpasword'
+    const url ='https://ecommerceserver24.vercel.app//auth/resetpasword'
     
     const resetPassword =()=>{
         setIsLoading(true)

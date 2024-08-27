@@ -9,7 +9,7 @@ const AdminSignin = () => {
     const [errMessage, setErrMessage] = useState({status:false,message:''})
     const {setIsLoading} = useContext(LoadingContent)
     const navigate = useNavigate()
-    const url ='http://ecommerceserver24.vercel.app/admin/auth'
+    const url ='https://ecommerceserver24.vercel.app//admin/auth'
     const toOtherPage = ()=>{
         setIsLoading(true)
         console.log('tans')
