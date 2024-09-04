@@ -11,17 +11,27 @@ import '../styles/additionalStyle.css'
 import d1 from '../asset/img/devon1.png'
 import d2 from '../asset/img/forex3.png'
 import d3 from '../asset/img/devon3.png'
+import axios from 'axios';
+import Toast from '../components/Toast';
 
 const Page = () => {
     const {setIsLoading} = useContext(LoadingContent)
     const globalData = useSelector((state)=>state.globalReducer.cart)
-    console.log(globalData)
-    const subdata = useSelector(state=>state.globalReducer.wishlist)
+    const subdatas = useSelector(state=>state.globalReducer.wishlist)
+    const [subdata, setSubdata] = useState([])
     const toOtherPage = ()=>{
-        setIsLoading(true)
+      setIsLoading(true)
     }
     useEffect(() => {
-      setIsLoading(false)
+      setIsLoading(true)
+      const url = 'https://ecommerceserver24.vercel.app/product'
+      axios.get(url).then((result)=>{
+        setIsLoading(false)
+        const Flashsale = result.data.result
+        setSubdata(Flashsale.slice(0, 10))
+      }).catch((erro)=>{
+        setIsLoading(false)
+      })
     
     }, [])
     const horizontaoScroll2 = useRef(null)
@@ -152,8 +162,8 @@ const Page = () => {
               </div>
             </div>
             <div className="d-flex g-2">
-              <button className="btn b-blue mx-3 rounded-pill fs-4 d-flex justify-content-center align-items-center" onClick={scrollLeft}><i className="bi bi-arrow-left"></i></button>
-              <button className="btn b-blue rounded-pill fs-4 d-flex justify-content-center align-items-center" onClick={scrollRight}><i className="bi bi-arrow-right"></i></button>
+              <button className="btn b-blue mx-3 rounded-pill fs-4 d-flex justify-content-center align-items-center" onMouseDown={scrollLeft}><i className="bi bi-arrow-left"></i></button>
+              <button className="btn b-blue rounded-pill fs-4 d-flex justify-content-center align-items-center" onMouseDown={scrollRight}><i className="bi bi-arrow-right"></i></button>
             </div>
          </div>
           <div className="container-lg scroll-x" ref={horizontaoScroll}>

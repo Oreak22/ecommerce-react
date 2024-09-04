@@ -6,8 +6,8 @@ import Usersbtn from './Usersbtn'
 import { useSelector } from 'react-redux'
 const Navbar = ({pageHome,pageContact,pageAbout,pageSign, account}) => {
     const [navopen, setnavopen] = useState(false)
-    const cartdetail= useSelector((state)=>state.globalReducer.cart.length)
-    const wishlist= useSelector((state)=>state.globalReducer.wishlist.length)
+    const cartdetail = useSelector((state)=>state.globalReducer.cart.length)
+    const wishlist = useSelector((state)=>state.globalReducer.wishlist.length)
     const [profle, setProfle] = useState({status:false,nub:''})
     const {setIsLoading} = useContext(LoadingContent)
     const [navClass, setNavClass] = useState(

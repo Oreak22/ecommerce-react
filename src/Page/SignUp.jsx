@@ -14,7 +14,7 @@ const SignUp = () => {
     const [upassword, setpassword] = useState()
     const {setIsLoading} = useContext(LoadingContent)
      const navg8 = useNavigate()
-    let url= 'https://ecommerceserver24.vercel.app//user/register'
+    let url= 'https://ecommerceserver24.vercel.app/user/register'
     const toOtherPage = ()=>{
         setIsLoading(true)
         console.log('tans')

@@ -14,7 +14,7 @@ const AdminRegister = () => {
     const [upassword, setpassword] = useState()
     const {setIsLoading} = useContext(LoadingContent)
     const navg8 = useNavigate()
-    let url= 'https://ecommerceserver24.vercel.app//admin/registeradmin'
+    let url= 'https://ecommerceserver24.vercel.app/admin/registeradmin'
     const toOtherPage = ()=>{
         setIsLoading(true)
         console.log('tans')

@@ -20,6 +20,7 @@ import Contact from './Page/Contact';
 import AdminPage from './Page/admin/Page';
 import AddGoods from './Page/admin/AddGoods';
 import Edit from './Page/admin/AdminComponent/Edit';
+import DiscriptionPage from './Page/DiscriptionPage';
 
 
 const App=()=> {
@@ -36,6 +37,7 @@ const App=()=> {
       <Route path='/mycart' element={<Cartpage/>}/>
       <Route path='/mywishlist' element={<Wishlist/>}/>
       <Route path='/contact' element={<Contact/>}/>
+      <Route path='/aboutproduct' element={<DiscriptionPage/>}/>
       {/* recover account */}
       <Route path='/auth/recover' element={<Recovermail/>}/>
       <Route path='/auth/resetpassword' element={<ChangePassword/>}/>

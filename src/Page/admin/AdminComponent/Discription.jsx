@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Usersbtn from '../../../components/Usersbtn'
+import AddToCarthBtn from '../../../components/AddToCarthBtn'
 
 const Discription = ({discription,admin}) => {
     const [purchase, setPurchase] = useState(admin?false:true)
-    const [quantity, setQuantity] = useState(3)
+    const [quantity, setQuantity] = useState(1)
     const [wishlisted, setwishlisted] = useState(false)
+    // const [discription, setDiscription] = useState({})
+
+    // useEffect(() => {
+    // //   setDiscription(discription)
+    
+    //   return () => {
+    //     second
+    //   }
+    // }, [third])
+    
   return (
     <>
         <section className="w-100">
@@ -13,15 +24,15 @@ const Discription = ({discription,admin}) => {
                     <div className="row justify-content-between g-3"style={{height:'100%'}}>
                         {discription.pic.otherView.map((item,index)=>{
                             return <div style={{width:'80%'}} className="col-lg-10 col-3 b-blue text-center d-flex align-items-center shadow-sm">
-                                <img src={item} alt="" className="p-2 img-fluid" style={{width:''}} />
+                                <img src={item} alt="" className="p-2 m-auto img-fluid" style={{width:''}} />
                             </div> 
                         })}
                     </div>
                 </div>
                 <div className="col-md-7 col-lg-4 col-8 shadow-sm">
-                    <div className="row justify-content-center align-items-center b-blue" style={{height:'100%'}}>
-                        <div className="col-md-11">
-                            <img src={discription.pic.fullView} className='img-fluid' alt="" />
+                    <div className="row justify-content-center align-items-center b-blue" style={{height:'100%',}}>
+                        <div className="col-md-11 bg-" style={{ width:'fit-content'}}>
+                            <img src={discription.pic.fullView} className='img-fluid mx-auto' alt="" />
                         </div>
                     </div>
                 </div>
@@ -118,7 +129,8 @@ const Discription = ({discription,admin}) => {
                                         </button>
                                     </div>
                                     <div className="d-flex mx-3">
-                                        <button className="btn btn-dark rounded-1 px-5" disabled={admin?true:false}>Buy Now</button>
+                                        <AddToCarthBtn/>
+                                        {/* <button className="btn btn-dark rounded-1 px-5" disabled={admin?true:false}>Buy Now</button> */}
                                         <button className="btn btn-outline-dark rounded-1 mx-3" disabled={admin?true:false}>
                                             <i className={wishlisted?"bi bi-heart-fill":"bi bi-heart"}></i>
                                         </button>

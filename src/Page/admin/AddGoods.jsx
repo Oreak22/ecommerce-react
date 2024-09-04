@@ -78,7 +78,7 @@ const AddGoods = () => {
     }
     const pushProduct=()=>{
         setIsLoading(true)
-        const url= 'http://localhost:5000/admin/pushproduct'
+        const url= 'https://ecommerceserver24.vercel.app/admin/pushproduct'
         axios.post(url,goodsDetail).then((res)=>{
             setRes({message:res.data.message,status:res.data.status})
             if(res.data.status){
@@ -91,11 +91,11 @@ const AddGoods = () => {
         })
     }
     const emty =()=>{
-        setMain_pic('')
-        setImg1('')
-        setImg2('')
-        setImg3('')
-        setImg4('')
+        setMain_pic()
+        setImg1()
+        setImg2()
+        setImg3()
+        setImg4()
         setgoodsname('')
         setPrice('')
         setDiscount('')

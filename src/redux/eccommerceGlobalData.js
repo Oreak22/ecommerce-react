@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { createSlice } from "@reduxjs/toolkit";
 import dPic1 from '../asset/img/dTV.png'
 import dPic2 from '../asset/img/dcontroller.png'
@@ -6,6 +7,7 @@ import dummyl1 from '../asset/img/dwish1.png'
 import dummyl2 from '../asset/img/dwish2.png'
 import dummyl3 from '../asset/img/dwish3.png'
 import dummyl4 from '../asset/img/dwish3.png'
+const cartUrl = ''
 
 export const dataSlice = createSlice({
     name:"ecommerceGlobalData",
@@ -17,15 +19,12 @@ export const dataSlice = createSlice({
             'cart_qauntity':1,
             'shipping':100,
             'product_id': 1
-        },
-        {
-            'cart_img': dPic2,
-            'cart_name':'H1 Gamepad',
-            'cart_pp': 550,
-            'cart_qauntity':2,
-            'shipping':100,
-            'product_id': 2
         }],
+        // cart:[axios.get(cartUrl,{headers:{user_id:JSON.parse(localStorage.exclusive).account_id}}).then((res)=>{
+        //     const cart_result = res.data.result
+        //     cart_result.map()
+        // }).catch((err)=>console.log(err)),
+        // ],
         wishlist:[{
             'cart_img': dummyl1,
             'cart_name':'Gucci duffle bag',
