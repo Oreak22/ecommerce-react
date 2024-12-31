@@ -246,8 +246,8 @@ const Page = () => {
          </div>
           <div className="container-lg scroll-x" >
             <div className="row g-4">
-              {subdata.map((item,indes)=><div className="col-md-3 col-6">
-                <GoodsCarth key={indes} datas={item}/>
+              {subdata.map((item,index)=><div key={index} className="col-md-3 col-6">
+                <GoodsCarth key={index} datas={item}/>
               </div>)}
             </div>
           </div>
