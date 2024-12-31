@@ -10,7 +10,6 @@ const About = () => {
         setIsLoading(true)
     }
 
-      
   return (
     <nav>
       <ul>

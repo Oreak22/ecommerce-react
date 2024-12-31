@@ -3,32 +3,23 @@ import { Link } from 'react-router-dom';
 import { LoadingContent } from '../components/LoadingState';
 import { useSelector } from 'react-redux';
 import Navbar from '../components/Navbar';
-import Loader from '../components/Loaders';
-import LoaderSmall from '../components/LoaderSmall';
 import GoodsCarth from '../components/GoodsCarth';
 import Footer from '../components/Footer';
 import '../styles/additionalStyle.css'
-import d1 from '../asset/img/devon1.png'
-import d2 from '../asset/img/forex3.png'
-import d3 from '../asset/img/devon3.png'
 import axios from 'axios';
-import Toast from '../components/Toast';
 
 const Page = () => {
     const {setIsLoading} = useContext(LoadingContent)
     const globalData = useSelector((state)=>state.globalReducer.cart)
     const subdatas = useSelector(state=>state.globalReducer.wishlist)
     const [subdata, setSubdata] = useState([])
-    const toOtherPage = ()=>{
-      setIsLoading(true)
-    }
     useEffect(() => {
       setIsLoading(true)
-      const url = 'https://ecommerceserver24.vercel.app/product'
+      const url = 'http://ecommerceserver24.vercel.app/product'
       axios.get(url).then((result)=>{
         setIsLoading(false)
         const Flashsale = result.data.result
-        setSubdata(Flashsale.slice(0, 10))
+        setSubdata(Flashsale)
       }).catch((erro)=>{
         setIsLoading(false)
       })

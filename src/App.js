@@ -21,6 +21,7 @@ import AdminPage from './Page/admin/Page';
 import AddGoods from './Page/admin/AddGoods';
 import Edit from './Page/admin/AdminComponent/Edit';
 import DiscriptionPage from './Page/DiscriptionPage';
+import Cashout from './Page/Cashout';
 
 
 const App=()=> {
@@ -32,15 +33,17 @@ const App=()=> {
       <Route path='/about' element={<About/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/signin' element={<SignIn/>}/>
-        {/*  */}
+        {/* profie pages */}
       <Route path='/account' element={<Account/>}/>
-      <Route path='/mycart' element={<Cartpage/>}/>
-      <Route path='/mywishlist' element={<Wishlist/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/aboutproduct' element={<DiscriptionPage/>}/>
+      {/* cartout pages */}
+      <Route path='/mycart' element={<Cartpage/>}/>
+      <Route path='/mywishlist' element={<Wishlist/>}/>
       {/* recover account */}
       <Route path='/auth/recover' element={<Recovermail/>}/>
       <Route path='/auth/resetpassword' element={<ChangePassword/>}/>
+      <Route path='/auth/paybill' element={<Cashout/>}/>
 
       {/* admin pagies */}
       <Route path='/admin/signin' element={<AdminSignin/>}/>

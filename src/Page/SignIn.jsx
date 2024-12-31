@@ -40,6 +40,9 @@ const SignIn = () => {
         })
     }
     useEffect(() => {
+        if(JSON.parse(localStorage.getItem('exclusive'))){
+            navigate('/')
+        }
       setIsLoading(false)
     }, [])
     

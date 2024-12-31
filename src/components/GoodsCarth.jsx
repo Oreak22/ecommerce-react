@@ -5,6 +5,7 @@ import naira_red from '../asset/img/red_naira-removebg-preview.png'
 import LoaderSmall from './LoaderSmall'
 import AddToCarthBtn from './AddToCarthBtn'
 import { Link } from 'react-router-dom'
+import Wshlistbtn from './Wshlistbtn'
 
 const GoodsCarth = ({datas}) => {
   const Pictures = React.lazy(()=>import ('./Pictures'))
@@ -31,7 +32,7 @@ const GoodsCarth = ({datas}) => {
             <div className={discount > 0 ?'costumer_action d-flex bg-transparent px-2 pt-2 justify-content-between ': 'costumer_action d-flex bg-transparent px-2 pt-2 justify-content-end align-items-'}> 
                 {discount > 0 && <small className="b-red px-2 rounded-1 text-light" style={{height:'fit-content'}}>-{discount}%</small>}
                <div>
-               <button className="btn btn-light rounded rounded-pill text-dark py-1 px-2" title='Add to Wishlist'><i className="bi bi-heart"></i></button>
+               <Wshlistbtn productId={_id} productPic={fullView} productPrice={discount >0 ? (price-Math.round((discount/100)*price)):price}  productName={goodsname}/>
                <br />
                <button className="btn btn-light rounded rounded-pill text-dark py-1 px-2 mt-2"><i className="bi bi-eye"></i></button>
                </div>
@@ -43,7 +44,7 @@ const GoodsCarth = ({datas}) => {
             hover 
             &&
             <div className="p-absolute w-100 cursor-pointer" >
-             <AddToCarthBtn productId={_id} productPic={fullView} productName={goodsname}/>
+             <AddToCarthBtn productId={_id} productPrice={discount >0 ? (price-Math.round((discount/100)*price)):price} productPic={fullView} productName={goodsname}/>
           </div>
           }
         </div>

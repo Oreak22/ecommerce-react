@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Usersbtn from '../../../components/Usersbtn'
 import AddToCarthBtn from '../../../components/AddToCarthBtn'
+import axios from 'axios'
 
 const Discription = ({discription,admin}) => {
     const [purchase, setPurchase] = useState(admin?false:true)
     const [quantity, setQuantity] = useState(1)
     const [wishlisted, setwishlisted] = useState(false)
+    const [inCart, setInCart] = useState(false)
+    // const [wishlistes, setWishlistes] = useState(false)
     // const [discription, setDiscription] = useState({})
 
     // useEffect(() => {
@@ -15,6 +18,28 @@ const Discription = ({discription,admin}) => {
     //     second
     //   }
     // }, [third])
+    useEffect(() => {
+      if(!admin){
+        const url = 'http://localhost:5000/order/findonestuff'
+        axios.get(url,{headers:{productId:discription._id}}).then((res)=>{
+          if(res.data.result.orderState === 'inCart'){
+            setInCart(true)
+            console.log(inCart)
+          }
+          if(res.data.result.orderState==='inWishlist'){
+            setwishlisted(true)
+            console.log(wishlisted)
+          }
+        }).catch((err)=>{
+          console.log(err)
+        })
+      }
+    
+      return () => {
+        
+      }
+    }, [])
+    
     
   return (
     <>
@@ -23,7 +48,7 @@ const Discription = ({discription,admin}) => {
                 <div className="col-lg-2 col-4">
                     <div className="row justify-content-between g-3"style={{height:'100%'}}>
                         {discription.pic.otherView.map((item,index)=>{
-                            return <div style={{width:'80%'}} className="col-lg-10 col-3 b-blue text-center d-flex align-items-center shadow-sm">
+                            return <div style={{width:'80%'}} key={index} className="col-lg-10 col-3 b-blue text-center d-flex align-items-center shadow-sm">
                                 <img src={item} alt="" className="p-2 m-auto img-fluid" style={{width:''}} />
                             </div> 
                         })}
@@ -68,7 +93,9 @@ const Discription = ({discription,admin}) => {
                                  <span className="px-2">|</span> <span className="text-danger h5">Adding to Stock</span>
                              </p>
                                }
-                                <div className="display-6 mt-0">{discription.price}.00</div>
+                                <div className="display-6 mt-0 ">
+                                    <span className='me-2 tx-red'>#{(discription.price-Math.round((discription.discount/100)*discription.price))}</span>
+                                    <span className='display-7 text-decoration-line-through'>#{discription.price}.00</span></div>
                                 <div className='mt-2'>{discription.discription}</div>
                             </div>
                             <hr className="my-4 d-md-none d-lg-block" />
@@ -78,7 +105,7 @@ const Discription = ({discription,admin}) => {
                                     <div className='d-flex h5'>
                                         {discription.color.map((item,index)=>{
                                             return <div className="form-check " key={index}>
-                                            <input class="form-check-input bg shadow-sm" style={{'background-color':item}}  type="radio" name="color" id={item} />
+                                            <input className="form-check-input bg shadow-sm" style={{'background-color':item}}  type="radio" name="color" id={item} />
                                             </div>
                                         })}
                                         
@@ -89,7 +116,7 @@ const Discription = ({discription,admin}) => {
                                     <label htmlFor="" className='me-2 h5'> Size:</label>
                                     <div className='d-flex h5'>
                                         <div
-                                            class="btn-group justify-content-between"
+                                            className="btn-group justify-content-between"
                                             role="group"
                                             aria-label="Basic checkbox toggle button group"
                                         >
@@ -98,15 +125,17 @@ const Discription = ({discription,admin}) => {
                                             return < >
                                                 <input
                                                 type="radio"
-                                                class="btn-check "
+                                                className="btn-check "
                                                 name="btnradio"
                                                 id={item}
                                                 autocomplete="off"
+                                                key={index}
                                             />
                                             <label
                                                 className="btn btn-outline-dark rounded-1 p-0 py-1 mx-2 d-flex align-items-center text-uppercase justify-content-center"
                                                 style={{width:'2.5rem'}}
                                                 for={item}
+                                                key={index}
                                                 >{item}
                                                 </label>
                                             </>
@@ -124,14 +153,14 @@ const Discription = ({discription,admin}) => {
                                             <i className="bi bi-dash-lg"></i>
                                         </button>
                                         <input type="number" className='m-0 text-center p-2' value={quantity} disabled style={{height:'100%',border:'none',outline:'none',width:'5rem'}} min={1} />
-                                        <button  className="btn btn-outline-dark m-0 rounded-0 rounded-end-2" disabled={admin?true:false} onClick={()=>setQuantity(quantity + 1)}> 
+                                        <button  className="btn btn-outline-dark m-0 rounded-0 rounded-end-2" disabled={admin || inCart ?true:false} onClick={()=>setQuantity(quantity + 1)}> 
                                             <i className="bi bi-plus-lg"></i>
                                         </button>
                                     </div>
                                     <div className="d-flex mx-3">
-                                        <AddToCarthBtn/>
+                                        <AddToCarthBtn orderQuantity={quantity} add={inCart} productName={discription.goodsname} productId={discription._id} productPrice={discription.price} productPic={discription.pic.fullView}/>
                                         {/* <button className="btn btn-dark rounded-1 px-5" disabled={admin?true:false}>Buy Now</button> */}
-                                        <button className="btn btn-outline-dark rounded-1 mx-3" disabled={admin?true:false}>
+                                        <button className="btn btn-outline-dark rounded-1 mx-3" disabled={admin || wishlisted ?true:false}>
                                             <i className={wishlisted?"bi bi-heart-fill":"bi bi-heart"}></i>
                                         </button>
                                     </div>
