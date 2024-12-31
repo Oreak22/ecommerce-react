@@ -159,7 +159,7 @@ const Page = () => {
          </div>
           <div className="container-lg scroll-x" ref={horizontaoScroll}>
             <div className="d-flex g-2">
-              {subdata.map((item,indes)=><div className="col-md-4 mx-2 col-6 col-lg-3">
+              {subdata.map((item,index)=><div key={index} className="col-md-4 mx-2 col-6 col-lg-3">
                 <GoodsCarth key={indes} datas={item}/>
               </div>)}
             </div>
