@@ -19,9 +19,10 @@ const AddToCarthBtn = ({productName,productId,productPic,orderQuantity,productPr
       productPic,
       productPrice,
       orderQuantity:!orderQuantity?1:orderQuantity,
-      costumerId:JSON.parse(localStorage.exclusive).account_id
+      costumerId:JSON.parse(localStorage.exclusive).account_id || null
     }
     const add2myCart = ()=>{
+      if (!JSON.parse(localStorage.exclusive)) return
       const url = 'https://ecommerceserver24.vercel.app/order/add2cart'
       axios.post(url,add2cart).then((res)=>{
         setMessage('Added To Cart')
