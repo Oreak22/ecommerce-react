@@ -15,7 +15,7 @@ const Page = () => {
     const [subdata, setSubdata] = useState([])
     useEffect(() => {
       setIsLoading(true)
-      const url = 'http://ecommerceserver24.vercel.app/product'
+      const url = 'https://ecommerceserver24.vercel.app/product'
       axios.get(url).then((result)=>{
         setIsLoading(false)
         const Flashsale = result.data.result
