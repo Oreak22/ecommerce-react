@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddToCarthBtn = ({productName,productId,productPic,orderQuantity,productPrice,add}) => {
   const {setIsLoading} = useContext(LoadingContent)
@@ -13,16 +14,21 @@ const AddToCarthBtn = ({productName,productId,productPic,orderQuantity,productPr
     const [message, setMessage] = useState('')
     const [toastStatus, setToastStatus] = useState()
     const [incart, setIncart] = useState( add ? true : false)
-    const add2cart = {
-      productName,
-      productId,
-      productPic,
-      productPrice,
-      orderQuantity:!orderQuantity?1:orderQuantity,
-      costumerId:JSON.parse(localStorage.exclusive).account_id || null
-    }
+    
+    const navigate = useNavigate()
     const add2myCart = ()=>{
-      if (!JSON.parse(localStorage.exclusive)) return
+      if (!localStorage.exclusive) {
+        navigate('/signin')
+        return
+      }
+      const add2cart = {
+        productName,
+        productId,
+        productPic,
+        productPrice,
+        orderQuantity:!orderQuantity?1:orderQuantity,
+        costumerId:JSON.parse(localStorage.exclusive).account_id || null
+      }
       const url = 'https://ecommerceserver24.vercel.app/order/add2cart'
       axios.post(url,add2cart).then((res)=>{
         setMessage('Added To Cart')
